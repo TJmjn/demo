@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<textarea id="TextAreal" cols="20" rows="2"></textarea>
+<input id="btnAgree" type="button" value="同意" disabled="disable" />
+</body>
+<script type="text/javascript">
+	var TimeID;
+	var leftTime=10;
+	function scroll(){
+       var btn=document.getElementById("btnAgree");
+       if(btn){
+       	if(leftTime<=0){
+       		btn.value="同意";
+       		btn.disabled="";
+       		clearInterval(TimeID);
+       	}
+       	else{
+       		btn.value="请阅读协议，同意（还剩下"+leftTime+"秒）";
+       		leftTime--;
+       	}
+       }
+       btn.value;
+	}
+	TimeID=setInterval("scroll()",1000);
+</script>
+</html>
